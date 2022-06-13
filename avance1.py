@@ -1,2 +1,2 @@
 PESO_MAXIMO = 45
-Costo inicial = 1000
+COSTO_INICIAL = 1000

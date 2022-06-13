@@ -1,2 +1,4 @@
-print("Hello Erick")
-print ("Hello Juan")
+a = 3 
+b = 2 
+resultado = a - b
+print(resultado)

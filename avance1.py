@@ -1,4 +1,10 @@
-#Inicio
+#Inicio proyecto Fidelitas Express
+
+COSTO_INICIAL = 1000
+PESO_MAXIMO = 45
+MODULO_EXPRESS = 200
+MODULO_BAJO_COSTO = 100
+MODULO_INTERNACIONAL = 300
 
 print("Envíos Fidélitas express")
 print()
@@ -12,36 +18,38 @@ print("Bajo costo")
 print("Internacional")
 print()
 
-#Costos
+#Imprimir información general en pantalla
 print("Cada paquete tiene un costo inicial de ₡1000 por el primer Kg")
 print("Costo por Kilogramo adicional según la modalidad seleccionada:")
-Express = print("Express: ₡200 por kilogramo")
-Bajo_costo = print("Bajo costo: ₡100 por kilogramo")
-Internacional = print("Internacional: ₡300 por kilogramo")
-print("El peso maximo permitido es de 45 kg")
+print("")
+print("1. Express: ₡200 por kilogramo")
+print("2. Bajo costo: ₡100 por kilogramo")
+print("3. Internacional: ₡300 por kilogramo")
 print()
 
 #Selección de modalidad y peso de primer paquete
-paquete_1 = print("Paquete #1")
-Modalidad_seleccionada = input("Modalidad de envío:")
-peso = float(input("Peso(kg):"))
+print("Paquete #1")
+Modalidad_seleccionada = input("Seleccione el número de la modalidad de envío: ")
+peso_paquete = float(input("Ingrese el Peso(kg) del paquete: "))
 
 #Calculo del precio a pagar
-
-if Modalidad_seleccionada == "Express":
-    print("Se aplicará el cargo de ₡200 por Kg")
-    Costo_por_kilogramo = (peso * 1000) + (200 * peso)
-elif Modalidad_seleccionada == "Bajo costo":
-    print("Se aplicará el cargo de ₡100 por Kg")
-    Costo_por_kilogramo = (peso * 1000) + (100 * peso)
+if peso_paquete < float(PESO_MAXIMO): 
+    if Modalidad_seleccionada == 1:
+        print("Se aplicará el cargo de ₡200 por Kg")
+        Costo_por_kilogramo = COSTO_INICIAL + (MODULO_EXPRESS * peso_paquete)
+    elif Modalidad_seleccionada == 2:
+        print("Se aplicará el cargo de ₡100 por Kg")
+        Costo_por_kilogramo = COSTO_INICIAL + (MODULO_BAJO_COSTO * peso_paquete)
+    elif Modalidad_seleccionada == 3:
+        print("Se aplicará el cargo de ₡300 por Kg")
+        Costo_por_kilogramo = COSTO_INICIAL + (MODULO_INTERNACIONAL * peso_paquete)
+    else:
+        print("La opción ingresada no es válida")
 else:
-    Modalidad_seleccionada == "Internacional"
-    print("Se aplicará el cargo de ₡300 por Kg")
-    Costo_por_kilogramo = (peso * 1000) + (300 * peso)
-
+    print("El peso máximo permitido son 45 kg")
 #Resultados
 
-print("El costo por el envio del paquete #1 es de:", "₡", Costo_por_kilogramo)
+print("El costo por el envio del paquete es de:", "₡", Costo_por_kilogramo)
 
 #Fin
 

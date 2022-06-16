@@ -46,6 +46,8 @@ if peso_paquete <= float(PESO_MAXIMO):
         print("Se aplicará el cargo de ₡300 por Kg")
         costo_por_kilogramo = COSTO_INICIAL + (MODULO_INTERNACIONAL * peso_paquete)
         print("El costo por el envío del paquete es de:", "₡", costo_por_kilogramo)
+    else:
+        print("Opción ingresada es inválida")
     
 else:
     print("El peso máximo permitido son 45 kg")

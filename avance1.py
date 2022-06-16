@@ -5,6 +5,7 @@ PESO_MAXIMO = 45
 MODULO_EXPRESS = 200
 MODULO_BAJO_COSTO = 100
 MODULO_INTERNACIONAL = 300
+REDUCCION_PESO = 1
 
 print("Envíos Fidélitas express")
 print()
@@ -30,28 +31,29 @@ print()
 #Selección de modalidad y peso de primer paquete
 print("Paquete #1")
 modalidad_seleccionada = int(input("Seleccione el número de la modalidad de envío: "))
-peso_paquete = float(input("Ingrese el Peso(kg) del paquete: "))
+if modalidad_seleccionada <= 3:
+    peso_paquete = float(input("Ingrese el Peso(kg) del paquete: "))
 
 #Calculo del precio a pagar
-if peso_paquete <= float(PESO_MAXIMO): 
-    if modalidad_seleccionada == 1:
-        print("Se aplicará el cargo de ₡200 por Kg")
-        costo_por_kilogramo = COSTO_INICIAL + (MODULO_EXPRESS * peso_paquete)
-        print("El costo por el envío del paquete es de:", "₡", costo_por_kilogramo)
-    elif modalidad_seleccionada == 2:
-        print("Se aplicará el cargo de ₡100 por Kg")
-        costo_por_kilogramo = COSTO_INICIAL + (MODULO_BAJO_COSTO * peso_paquete)
-        print("El costo por el envío del paquete es de:", "₡", costo_por_kilogramo)
-    elif modalidad_seleccionada == 3:
-        print("Se aplicará el cargo de ₡300 por Kg")
-        costo_por_kilogramo = COSTO_INICIAL + (MODULO_INTERNACIONAL * peso_paquete)
-        print("El costo por el envío del paquete es de:", "₡", costo_por_kilogramo)
-    else:
-        print("Opción ingresada es inválida")
+    if peso_paquete <= float(PESO_MAXIMO): 
+        if modalidad_seleccionada == 1:
+            print("Se aplicará el cargo de ₡200 por Kg")
+            costo_por_kilogramo = COSTO_INICIAL + (MODULO_EXPRESS * (peso_paquete - REDUCCION_PESO))
+            print("El costo por el envío del paquete es de:", "₡", costo_por_kilogramo)
+        elif modalidad_seleccionada == 2:
+            print("Se aplicará el cargo de ₡100 por Kg")
+            costo_por_kilogramo = COSTO_INICIAL + (MODULO_BAJO_COSTO * (peso_paquete - REDUCCION_PESO))
+            print("El costo por el envío del paquete es de:", "₡", costo_por_kilogramo)
+        elif modalidad_seleccionada == 3:
+            print("Se aplicará el cargo de ₡300 por Kg")
+            costo_por_kilogramo = COSTO_INICIAL + (MODULO_INTERNACIONAL * (peso_paquete - REDUCCION_PESO))
+            print("El costo por el envío del paquete es de:", "₡", costo_por_kilogramo)
     
+    else:
+        print("El peso máximo permitido son 45 kg")
 else:
-    print("El peso máximo permitido son 45 kg")
-
+    print("Opción ingresada es inválida")
+    
 
 
 

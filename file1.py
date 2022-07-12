@@ -22,4 +22,10 @@ def pruebaLista():
     agregarUsuarios(prueba)
     print(prueba)
     print(listaPedidos)
-pruebaLista()
+SALIDA =1    
+while SALIDA < 2:
+    opcion = int(input("Ingrese Opcion: "))
+    if opcion ==1:
+        pruebaLista()
+    else:
+        SALIDA +=1

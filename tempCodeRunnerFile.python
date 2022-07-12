@@ -1,0 +1,3 @@
+print("Ingrese sus datos")
+Nombre = input("Nombre completo: ")
+Identificación = input("Identificación: ")

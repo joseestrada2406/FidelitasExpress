@@ -38,6 +38,7 @@ def moduloEnvio():
     while SALIDA < 2:
         menuModalidadesEnvio()
         global identificador_paquete
+        global listaPedidos
         identificador_paquete +=1
         print("Número de pedido: ", identificador_paquete)
         modalidad_seleccionada = int(input("\nSeleccione el número de la modalidad de envío: ")) 
@@ -51,6 +52,8 @@ def moduloEnvio():
                         informacionUsuario.insert(0, identificador_paquete)
                         informacionUsuario.append("Express")
                         informacionUsuario.append(costo_por_kilogramo)
+                        #Crear una instancia para guardar los datos generales
+                        #
                         listaPedidos.append(informacionUsuario)
                         print(listaPedidos)
                         print("\nSu envio fue registrado")

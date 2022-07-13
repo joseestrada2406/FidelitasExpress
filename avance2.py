@@ -16,7 +16,8 @@ def flujoPrincipalProyecto():
         seleccionModulo = int(input("Seleccione el módulo al que desea acceder: "))
         if seleccionModulo == 1:
             moduloEnvio()
-        SALIDA +=1
+        if seleccionModulo ==2:
+            SALIDA +=1
     
 
 def bienvenida():
@@ -49,12 +50,15 @@ def moduloEnvio():
                         print("\nSe aplicará el cargo de ₡200 por Kg")
                         costo_por_kilogramo = COSTO_INICIAL + (MODULO_EXPRESS * (peso_paquete - REDUCCION_PESO))
                         print("El costo por el envío del paquete es de:", "₡", costo_por_kilogramo)
-                        informacionUsuario.insert(0, identificador_paquete)
-                        informacionUsuario.append("Express")
-                        informacionUsuario.append(costo_por_kilogramo)
+                        copiaInformacionUsuario = informacionUsuario[:]
+                        copiaInformacionUsuario.insert(0, identificador_paquete)
+                        copiaInformacionUsuario.append("Express")
+                        copiaInformacionUsuario.append(costo_por_kilogramo)
+                        print(f"copia Informacion Usuario: {copiaInformacionUsuario}")
+                        print(f"información usuario: {informacionUsuario}")
                         #Crear una instancia para guardar los datos generales
                         #
-                        listaPedidos.append(informacionUsuario)
+                        listaPedidos.append(copiaInformacionUsuario)
                         print(listaPedidos)
                         print("\nSu envio fue registrado")
                         print("Desea ingresar otro pedido?")
@@ -65,10 +69,13 @@ def moduloEnvio():
                         print("\nSe aplicará el cargo de ₡100 por Kg")
                         costo_por_kilogramo = COSTO_INICIAL + (MODULO_BAJO_COSTO * (peso_paquete - REDUCCION_PESO))
                         print("El costo por el envío del paquete es de:", "₡", costo_por_kilogramo)
-                        informacionUsuario.insert(0, identificador_paquete)
-                        informacionUsuario.append("Bajo costo")
-                        informacionUsuario.append(costo_por_kilogramo)
-                        listaPedidos.append(informacionUsuario)
+                        copiaInformacionUsuario2 = informacionUsuario[:]
+                        copiaInformacionUsuario2.insert(0, identificador_paquete)
+                        copiaInformacionUsuario2.append("Bajo costo")
+                        copiaInformacionUsuario2.append(costo_por_kilogramo)
+                        print(f"copia Informacion Usuario: {copiaInformacionUsuario2}")
+                        print(f"información usuario: {informacionUsuario}")
+                        listaPedidos.append(copiaInformacionUsuario2)
                         print(listaPedidos)
                         print("\nSu envio fue registrado")
                         print("Desea ingresar otro pedido?")
@@ -78,10 +85,13 @@ def moduloEnvio():
                         print("\nSe aplicará el cargo de ₡300 por Kg")
                         costo_por_kilogramo = COSTO_INICIAL + (MODULO_INTERNACIONAL * (peso_paquete - REDUCCION_PESO))
                         print("El costo por el envío del paquete es de:", "₡", costo_por_kilogramo)
-                        informacionUsuario.insert(0, identificador_paquete)
-                        informacionUsuario.append("Internacional")
-                        informacionUsuario.append(costo_por_kilogramo)
-                        listaPedidos.append(informacionUsuario)
+                        copiaInformacionUsuario3 = informacionUsuario[:]
+                        copiaInformacionUsuario3.insert(0, identificador_paquete)
+                        copiaInformacionUsuario3.append("Internacional")
+                        copiaInformacionUsuario3.append(costo_por_kilogramo)
+                        print(f"copia Informacion Usuario: {copiaInformacionUsuario3}")
+                        print(f"información usuario: {informacionUsuario}")
+                        listaPedidos.append(copiaInformacionUsuario3)
                         print(listaPedidos)
                         print("\nSu envio fue registrado")
                         print("Desea ingresar otro pedido?")

@@ -135,14 +135,14 @@ def moduloFacturacion():
     
 
 def pedidosPorUsuario(ingresoCedula):
+    contadorFila = 0
     listaTemporal = []
-    for contadorFila in range(len(listaPedidos)):
-        for contadorColumna in range(len(listaPedidos[contadorFila])):
-            if ingresoCedula == listaPedidos[contadorFila][contadorColumna]:
-                listaTemporal.append(listaPedidos[contadorColumna])
-                print("El detalle de sus pedidos se muestra a continuación: ")
-                print("Número de pedido, ","Nombre de quién realizó el pedio, ", "Compañía "," Monto por pedido ")
-    else:
+    print("\nEl detalle de sus pedidos se muestra a continuación: \n")
+    print("\nNúmero de pedido, ","Nombre de quién realizó el pedio, ", "Compañía "," Monto por pedido \n")
+    for contadorFila in range(len(listaPedidos)):  
+        if ingresoCedula == listaPedidos[contadorFila][2]:
+            listaTemporal.append(listaPedidos[contadorFila])
+    else: 
         print("Aún no ha ingresado ningún pedido")
     print(*listaTemporal,sep="\n")
     print("\n")

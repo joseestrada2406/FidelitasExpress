@@ -17,7 +17,8 @@ def flujoPrincipalProyecto():
         if seleccionModulo == 1:
             moduloEnvio()
         if seleccionModulo ==2:
-            SALIDA +=1
+            moduloFacturacion()
+            
     
 
 def bienvenida():
@@ -101,7 +102,7 @@ def moduloEnvio():
         else:
             print('Opción ingresada no es válida\n')
     else:
-            print("Muchas gracias por realizar el envio con nosotros")
+            print("Muchas gracias por realizar el envio con nosotros \n")
 
 #Función para guardar los datos ingresados por el usuario
 def solicitarInformacionParaEnvio():
@@ -126,5 +127,9 @@ def menuModalidadesEnvio():
     print("1. Express: ₡200 por kilogramo")
     print("2. Bajo costo: ₡100 por kilogramo")
     print("3. Internacional: ₡300 por kilogramo\n")
+    
+
+def moduloFacturacion():
+    return 0 
     
 flujoPrincipalProyecto()

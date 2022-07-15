@@ -106,7 +106,7 @@ def moduloEnvio():
 
 #Función para guardar los datos ingresados por el usuario
 def solicitarInformacionParaEnvio():
-    nombre = input("Nombre completo: ")
+    nombre = input("Ingrese el nombre completo de quien realiza el pedido: ")
     identificación = int(input("Identificación: "))
     empresa = input("Empresa donde labora: ")
     informacionPersona = [nombre,identificación,empresa]
@@ -130,6 +130,21 @@ def menuModalidadesEnvio():
     
 
 def moduloFacturacion():
-    return 0 
+    ingresoCedula = int(input("Para brindar el detalle de sus pedidos, por favor ingrese su número de cédula: "))
+    pedidosPorUsuario(ingresoCedula)
+    
+
+def pedidosPorUsuario(ingresoCedula):
+    listaTemporal = []
+    for contadorFila in range(len(listaPedidos)):
+        for contadorColumna in range(listaPedidos[contadorFila]):
+            if ingresoCedula == listaPedidos[contadorFila][contadorColumna]:
+                listaTemporal.append(listaPedidos[contadorColumna])
+                print("El detalle de sus pedidos se muestra a continuación: ")
+                print("Número de pedido, ","Nombre de quién realizó el pedio, ", "Compañía "," Monto por pedido ")
+            else:
+                print("Aún no ha ingresado ningún pedido")
+    print(*listaTemporal,sep="\n")
+    print("\n")
     
 flujoPrincipalProyecto()

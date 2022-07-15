@@ -142,8 +142,8 @@ def pedidosPorUsuario(ingresoCedula):
                 listaTemporal.append(listaPedidos[contadorColumna])
                 print("El detalle de sus pedidos se muestra a continuación: ")
                 print("Número de pedido, ","Nombre de quién realizó el pedio, ", "Compañía "," Monto por pedido ")
-            else:
-                print("Aún no ha ingresado ningún pedido")
+    else:
+        print("Aún no ha ingresado ningún pedido")
     print(*listaTemporal,sep="\n")
     print("\n")
     

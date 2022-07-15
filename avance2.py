@@ -137,7 +137,7 @@ def moduloFacturacion():
 def pedidosPorUsuario(ingresoCedula):
     listaTemporal = []
     for contadorFila in range(len(listaPedidos)):
-        for contadorColumna in range(listaPedidos[contadorFila]):
+        for contadorColumna in range(len(listaPedidos[contadorFila])):
             if ingresoCedula == listaPedidos[contadorFila][contadorColumna]:
                 listaTemporal.append(listaPedidos[contadorColumna])
                 print("El detalle de sus pedidos se muestra a continuación: ")

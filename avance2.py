@@ -10,16 +10,20 @@ listaPedidos = []
 def flujoPrincipalProyecto():
     SALIDA = 0
     seleccionModulo = 0
+    seleccionSeguir = 0
+
     bienvenida()
     while SALIDA == 0:
         menuModulos()
         seleccionModulo = int(input("Seleccione el módulo al que desea acceder: "))
         if seleccionModulo == 1:
             moduloEnvio()
-        if seleccionModulo ==2:
+        if seleccionModulo == 2:
             moduloFacturacion()
+            seleccionSeguir = int(input("Desea realizar otra operación: 1=Si / 2=No "))
+            if seleccionSeguir == 2:
+                SALIDA = 1
             
-    
 
 def bienvenida():
     #Bienvenida
@@ -131,7 +135,15 @@ def menuModalidadesEnvio():
 
 def moduloFacturacion():
     ingresoCedula = int(input("Para brindar el detalle de sus pedidos, por favor ingrese su número de cédula: "))
+    nombreEmpresa =(input(""))
+    direccion = (input(""))
+    telefono = int(input(""))
+
     pedidosPorUsuario(ingresoCedula)
+
+    #funcion
+    #Anadir prints de info tonta 
+    #
     
 
 def pedidosPorUsuario(ingresoCedula):
@@ -142,9 +154,20 @@ def pedidosPorUsuario(ingresoCedula):
     for contadorFila in range(len(listaPedidos)):  
         if ingresoCedula == listaPedidos[contadorFila][2]:
             listaTemporal.append(listaPedidos[contadorFila])
-    else: 
-        print("Aún no ha ingresado ningún pedido")
-    print(*listaTemporal,sep="\n")
-    print("\n")
     
+    if listaTemporal == []:
+        print("Aún no ha ingresado ningún pedido")
+    else:
+        print(*listaTemporal,sep="\n")
+        print("\n")
+    sumaPedidoUsuario = sumaTotalPedido(listaTemporal)
+    print(sumaPedidoUsuario)
+
+def sumaTotalPedido(item):
+    sumaTotal = 0
+    for contadorFila in range(len(item)):  
+        sumaTotal += item[contadorFila][5]
+    return sumaTotal      
+
+
 flujoPrincipalProyecto()

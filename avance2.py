@@ -135,22 +135,30 @@ def menuModalidadesEnvio():
 
 def moduloFacturacion():
     ingresoCedula = int(input("Para brindar el detalle de sus pedidos, por favor ingrese su número de cédula: "))
-    nombreEmpresa =(input(""))
-    direccion = (input(""))
-    telefono = int(input(""))
+    nombreEmpresa =(input("Ingrese el nombre de la empresa que desea la factura: "))
+    direccion = (input("Ingrese la dirección de la empresa: "))
+    telefono = int(input("Ingrese el número de telefono: "))
 
+    print("------------------------------")
+    print("\nFidélitas express")
+    print("Cédula jurídica 3-101-400635")
+    print("La aurora, Heredia, Costa Rica")
+    print("https://ufidelitas.ac.cr/")
+    print("506 2206-8600")
+    print("------------------------------")
+    print(nombreEmpresa)
+    print(direccion)
+    print(telefono)
+    print("------------------------------")
+    
     pedidosPorUsuario(ingresoCedula)
-
-    #funcion
-    #Anadir prints de info tonta 
-    #
     
 
 def pedidosPorUsuario(ingresoCedula):
     contadorFila = 0
     listaTemporal = []
-    print("\nEl detalle de sus pedidos se muestra a continuación: \n")
-    print("\nNúmero de pedido, ","Nombre de quién realizó el pedio, ", "Compañía "," Monto por pedido \n")
+    print("El detalle de sus pedidos se muestra a continuación: \n")
+    print("Número de pedido, ","Nombre de quién realizó el pedio, ", "Compañía "," Monto por pedido \n")
     for contadorFila in range(len(listaPedidos)):  
         if ingresoCedula == listaPedidos[contadorFila][2]:
             listaTemporal.append(listaPedidos[contadorFila])
@@ -165,7 +173,8 @@ def pedidosPorUsuario(ingresoCedula):
 
 def sumaTotalPedido(item):
     sumaTotal = 0
-    for contadorFila in range(len(item)):  
+    print("La suma de todos los envios es: ")
+    for contadorFila in range(len(item)):       
         sumaTotal += item[contadorFila][5]
     return sumaTotal      
 

@@ -1,0 +1,11 @@
+Información del pedido:
+
+Nombre = richard
+Identificación = 5
+Empresa = negro
+
+Paquete # 2
+Modalidad seleccionada = 2
+Costo por el envio del paquete = 900.0
+Peso del paquete Kg = 0.0
+

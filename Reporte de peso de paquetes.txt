@@ -1,0 +1,4 @@
+Peso de los pedidos:
+
+[1, 'Erick', 4, 'wu', 'Express', 3800.0, 15.0]
+

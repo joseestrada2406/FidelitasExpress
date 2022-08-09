@@ -1,11 +1,11 @@
 Información del pedido:
 
-Nombre = Jose 
+Nombre = Jose Estrada
 Identificación = 402310691
-Empresa = Exo
+Empresa = Experian
 
 Paquete # 2
-Modalidad seleccionada = 3
-Costo por el envio del paquete = 3700.0
+Modalidad seleccionada = 2
+Costo por el envio del paquete = 1900.0
 Peso del paquete Kg = 10.0
 

@@ -1,11 +1,11 @@
 Información del pedido:
 
-Nombre = richard
-Identificación = 5
-Empresa = negro
+Nombre = Jose 
+Identificación = 402310691
+Empresa = Exo
 
 Paquete # 2
-Modalidad seleccionada = 2
-Costo por el envio del paquete = 900.0
-Peso del paquete Kg = 0.0
+Modalidad seleccionada = 3
+Costo por el envio del paquete = 3700.0
+Peso del paquete Kg = 10.0
 

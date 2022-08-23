@@ -1,3 +1,4 @@
+import io 
 
 
 COSTO_INICIAL = 1000
@@ -6,8 +7,8 @@ MODULO_EXPRESS = 200
 MODULO_BAJO_COSTO = 100
 MODULO_INTERNACIONAL = 300
 REDUCCION_PESO = 1
-identificador_paquete = 0
 listaPedidos = []
+identificador_paquete = 0
 
 def flujoPrincipalProyecto():
     SALIDA = 0
@@ -50,7 +51,7 @@ def moduloEnvio():
         global identificador_paquete
         global listaPedidos
         identificador_paquete +=1
-
+        """"""
         print("Número de pedido: ", identificador_paquete)
         global modalidad_seleccionada
         modalidad_seleccionada = int(input("\nSeleccione el número de la modalidad de envío: ")) 
@@ -224,31 +225,30 @@ def agregarInformacionPedidos():
     """BUSQUEMOS CÓMO ITERAR SOBRE EL ARREGLO E IMPRIMIR LOS DATOS ACÁ"""
     
     archivoTemporal = abrirArchivo("Reporte de paquetes creados.txt", "a")
-    for fila in range(len(listaPedidos)):
-        for columna in range(len(listaPedidos[fila])):
-            archivoTemporal.write("Información del pedido:")
-            archivoTemporal.write("\n\n")
-            archivoTemporal.write(f"Nombre = {str(listaPedidos[fila][1])}")
-            archivoTemporal.write("\n")
-            archivoTemporal.write(f"Identificación = {str(listaPedidos[fila][2])}")
-            archivoTemporal.write("\n")
-            archivoTemporal.write(f"Empresa = {str(listaPedidos[fila][3])}")
-            archivoTemporal.write("\n\n")
-            archivoTemporal.write(f"Paquete #{str(listaPedidos[fila][0])}")
-            archivoTemporal.write("\n")
-            archivoTemporal.write(f"Modalidad seleccionada = {str(listaPedidos[fila][4])}")
-            archivoTemporal.write("\n")
-            archivoTemporal.write(f"Costo por el envio del paquete = {str(listaPedidos[fila][5])}")
-            archivoTemporal.write("\n")
-            archivoTemporal.write(f"Peso del paquete Kg = {str(listaPedidos[fila][6])}")
-            archivoTemporal.write("\n\n")
+    for fila in listaPedidos:
+        archivoTemporal.write("Información del pedido:")
+        archivoTemporal.write("\n\n")
+        archivoTemporal.write(f"Nombre = {str(fila[1])}")
+        archivoTemporal.write("\n")
+        archivoTemporal.write(f"Identificación = {str(fila[2])}")
+        archivoTemporal.write("\n")
+        archivoTemporal.write(f"Empresa = {str(fila[3])}")
+        archivoTemporal.write("\n\n")
+        archivoTemporal.write(f"Paquete #{str(fila[0])}")
+        archivoTemporal.write("\n")
+        archivoTemporal.write(f"Modalidad seleccionada = {str(fila[4])}")
+        archivoTemporal.write("\n")
+        archivoTemporal.write(f"Costo por el envio del paquete = {str(fila[5])}")
+        archivoTemporal.write("\n")
+        archivoTemporal.write(f"Peso del paquete Kg = {str(fila[6])}")
+        archivoTemporal.write("\n\n")
         #print("\nLa información fue grabada correctamente")
-    archivoTemporal.close()
+    cerrarArchivo(archivoTemporal)
 
 """Función para abrir archivos"""           
 
 def abrirArchivo(nombreArchivo,modo):
-    archivoTemporal = open(nombreArchivo,modo,encoding='utf-8')
+    archivoTemporal = open(nombreArchivo,modo,encoding='latin-1')
     return archivoTemporal
 
 """Función para cerrar archivos """
@@ -259,7 +259,7 @@ def cerrarArchivo(nombreArchivo):
 """Función para leer archivos"""
   
 def lecturaArchivo(nombreArchivo):
-    archivoTemporal = open(nombreArchivo,'r', encoding='utf-8')
+    archivoTemporal = open(nombreArchivo,'r',encoding='latin-1')
     print(archivoTemporal.read())
 
 """Función para agregar la información de pedidos"""

@@ -220,24 +220,29 @@ def moduloReportes():
 """Función para agregar la información de pedidos"""
 
 def agregarInformacionPedidos():
-    archivoTemporal = abrirArchivo("Lista de paquetes creados.txt", "a")
-    archivoTemporal.write("Información del pedido:")
-    archivoTemporal.write("\n\n")
-    archivoTemporal.write("Nombre = % s"%nombre)
-    archivoTemporal.write("\n")
-    archivoTemporal.write("Identificación = % s"%identificación)
-    archivoTemporal.write("\n")
-    archivoTemporal.write("Empresa = % s"%empresa)
-    archivoTemporal.write("\n\n")
-    archivoTemporal.write("Paquete # % s"%identificador_paquete)
-    archivoTemporal.write("\n")
-    archivoTemporal.write("Modalidad seleccionada = % s"%modalidad_seleccionada)
-    archivoTemporal.write("\n")
-    archivoTemporal.write("Costo por el envio del paquete = % s"%costo_por_kilogramo)
-    archivoTemporal.write("\n")
-    archivoTemporal.write("Peso del paquete Kg = % s"%peso_paquete)
-    archivoTemporal.write("\n\n")
-    #print("\nLa información fue grabada correctamente")
+    
+    """BUSQUEMOS CÓMO ITERAR SOBRE EL ARREGLO E IMPRIMIR LOS DATOS ACÁ"""
+    
+    archivoTemporal = abrirArchivo("Reporte de paquetes creados.txt", "a")
+    for fila in range(len(listaPedidos)):
+        for columna in range(len(listaPedidos[fila])):
+            archivoTemporal.write("Información del pedido:")
+            archivoTemporal.write("\n\n")
+            archivoTemporal.write(f"Nombre = {str(listaPedidos[fila][1])}")
+            archivoTemporal.write("\n")
+            archivoTemporal.write(f"Identificación = {str(listaPedidos[fila][2])}")
+            archivoTemporal.write("\n")
+            archivoTemporal.write(f"Empresa = {str(listaPedidos[fila][3])}")
+            archivoTemporal.write("\n\n")
+            archivoTemporal.write(f"Paquete #{str(listaPedidos[fila][0])}")
+            archivoTemporal.write("\n")
+            archivoTemporal.write(f"Modalidad seleccionada = {str(listaPedidos[fila][4])}")
+            archivoTemporal.write("\n")
+            archivoTemporal.write(f"Costo por el envio del paquete = {str(listaPedidos[fila][5])}")
+            archivoTemporal.write("\n")
+            archivoTemporal.write(f"Peso del paquete Kg = {str(listaPedidos[fila][6])}")
+            archivoTemporal.write("\n\n")
+        #print("\nLa información fue grabada correctamente")
     archivoTemporal.close()
 
 """Función para abrir archivos"""           
@@ -258,7 +263,7 @@ def lecturaArchivo(nombreArchivo):
     print(archivoTemporal.read())
 
 """Función para agregar la información de pedidos"""
-
+"""
 def agregarInformacionPedidos():
     file = open("Lista de paquetes creados.txt", "a")
     file.write("Información del pedido:")
@@ -279,6 +284,7 @@ def agregarInformacionPedidos():
     file.write("\n\n")
     print("\nLa información fue grabada correctamente")
     file.close()
+    """
 
 """
 def crearArchivo():

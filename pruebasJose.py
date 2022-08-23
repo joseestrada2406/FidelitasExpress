@@ -7,8 +7,11 @@ MODULO_EXPRESS = 200
 MODULO_BAJO_COSTO = 100
 MODULO_INTERNACIONAL = 300
 REDUCCION_PESO = 1
-listaPedidos = []
+listaPedidos = [[1, 'Jose Estrada', 402310691, 'Experian', 'Express', 2800.0, 10.0]]
 identificador_paquete = 0
+if (len(listaPedidos) > 0 ):
+    identificador_paquete = int(listaPedidos[-1][0])
+
 
 def flujoPrincipalProyecto():
     SALIDA = 0
@@ -136,7 +139,7 @@ def solicitarInformacionParaEnvio():
 
 
 def imprimirGeneralidadesEnvio():
-    print("\nSe cuenta con 3 modalidades de envío:")
+    print("\nSe cuenta con 3 modalidades de envío:")     
     print("Express")
     print("Bajo costo")
     print("Internacional\n")
@@ -211,10 +214,11 @@ def moduloReportes():
     if decision == 1:
         agregarInformacionPedidos()
         lecturaArchivo('Lista de paquetes creados.txt')
+    if decision == 2:
+        reporteGanancias()
     if decision == 3:
-        crearArchivoErick()
-        agregarInformacionErick()
-        mostrarInformacionErick()
+        reportePesoDePaquetes()
+        lecturaArchivo("Reporte de peso de paquetes.txt")
 
 """Aquí se encuentran las funciones para el manejo de archivos"""
 
@@ -262,104 +266,20 @@ def lecturaArchivo(nombreArchivo):
     archivoTemporal = open(nombreArchivo,'r',encoding='latin-1')
     print(archivoTemporal.read())
 
-"""Función para agregar la información de pedidos"""
-"""
-def agregarInformacionPedidos():
-    file = open("Lista de paquetes creados.txt", "a")
-    file.write("Información del pedido:")
-    file.write("\n\n")
-    file.write("Nombre = % s"%nombre)
-    file.write("\n")
-    file.write("Identificación = % s"%identificación)
-    file.write("\n")
-    file.write("Empresa = % s"%empresa)
-    file.write("\n\n")
-    file.write("Paquete # % s"%identificador_paquete)
-    file.write("\n")
-    file.write("Modalidad seleccionada = % s"%modalidad_seleccionada)
-    file.write("\n")
-    file.write("Costo por el envio del paquete = % s"%costo_por_kilogramo)
-    file.write("\n")
-    file.write("Peso del paquete Kg = % s"%peso_paquete)
-    file.write("\n\n")
-    print("\nLa información fue grabada correctamente")
-    file.close()
-    """
+def reporteGanancias():
+    print('1')
 
-"""
-def crearArchivo():
-    file = open("Lista de paquetes creados.txt", "w")
-    file.close()
-
-def agregarInformacion():
-    file = open("Lista de paquetes creados.txt", "a")
-    file.write("Información del pedido:")
-    file.write("\n\n")
-    file.write("Nombre = % s"%nombre)
-    file.write("\n")
-    file.write("Identificación = % s"%identificación)
-    file.write("\n")
-    file.write("Empresa = % s"%empresa)
-    file.write("\n\n")
-    file.write("Paquete # % s"%identificador_paquete)
-    file.write("\n")
-    file.write("Modalidad seleccionada = % s"%modalidad_seleccionada)
-    file.write("\n")
-    file.write("Costo por el envio del paquete = % s"%costo_por_kilogramo)
-    file.write("\n")
-    file.write("Peso del paquete Kg = % s"%peso_paquete)
-    file.write("\n\n")
-    print("\nLa información fue grabada correctamente")
-    file.close()
-
-def mostrarInformacion():
-    file = open("Lista de paquetes creados.txt", "r")
-    mensaje = file.read()
-    print(mensaje)
-    file.close()
-
-def Adicional():
-    SALIDA = 0
-    if (SALIDA == 1):
-        agregarInformacion()
-       
-if __name__=="__main__":
-    Adicional()
-
-
-#Erick
-
-def crearArchivoErick():
-    file = open("Reporte de peso de paquetes.txt", "w")
-    file.close()
-
-def agregarInformacionErick():
-    file = open("Reporte de peso de paquetes.txt", "a")
-    file.write("Peso de los pedidos:")
-    file.write("\n\n")
+def reportePesoDePaquetes():
+    archivoTemportal = abrirArchivo("Reporte de peso de paquetes.txt", "a")
+    archivoTemportal.write("Peso de los pedidos:")
+    archivoTemportal.write("\n\n")
 
     for pedido in listaPedidos:  
         if pedido[6] != 0:
-            file.write(str(pedido) + "\n")       
-    file.write("\n")
-    
-    print("\nLa información fue grabada correctamente")
-    file.close()
+            archivoTemportal.write(str(pedido) + "\n")       
+    archivoTemportal.write("\n")
+    cerrarArchivo(archivoTemportal)
 
-def mostrarInformacionErick():
-    file = open("Reporte de peso de paquetes.txt", "r")
-    mensaje = file.read()
-    print(mensaje)
-    file.close()
 
-def Adicional():
-    SALIDA = 0
-    if (SALIDA == 1):
-        agregarInformacionErick()
-       
-if __name__=="__main__":
-    Adicional()
-
-"""
 
 flujoPrincipalProyecto()

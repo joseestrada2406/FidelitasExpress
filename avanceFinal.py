@@ -5,8 +5,8 @@ MODULO_EXPRESS = 200
 MODULO_BAJO_COSTO = 100
 MODULO_INTERNACIONAL = 300
 REDUCCION_PESO = 1
-listaPedidos = [[1, 'Jose Estrada', 402310691, 'Experian', 'Express', 2800.0, 10.0],[2, 'Jose Estrada', 402310691, 'Experian', 'Express', 2800.0, 19.0],[3, 'Jose Estrada', 402310691, 'Experian', 'Express', 2800.0, 32.0],[4, 'Jose Estrada', 402310691, 'Experian', 'Bajo costo', 14000.0, 32.0]]
-#listaPedidos = []
+#listaPedidos = [[1, 'Jose Estrada', 402310691, 'Experian', 'Express', 2800.0, 10.0],[2, 'Jose Estrada', 402310691, 'Experian', 'Express', 2800.0, 19.0],[3, 'Jose Estrada', 402310691, 'Experian', 'Express', 2800.0, 32.0],[4, 'Jose Estrada', 402310691, 'Experian', 'Bajo costo', 14000.0, 32.0]]
+listaPedidos = []
 identificador_paquete = 0
 if (len(listaPedidos) > 0 ):
     identificador_paquete = int(listaPedidos[-1][0])

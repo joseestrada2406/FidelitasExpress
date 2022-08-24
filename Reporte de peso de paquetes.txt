@@ -1,5 +1,0 @@
-Peso de los pedidos:
-
-[1, 'Jose', 402310691, 'Experian', 'Bajo costo', 1900.0, 10.0]
-[2, 'Jose ', 402310691, 'Exo', 'Internacional', 3700.0, 10.0]
-

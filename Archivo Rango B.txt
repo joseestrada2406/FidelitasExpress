@@ -1,7 +1,0 @@
-
-Rango B
-
-Se cuentan con los siguientes pedidos con peso entre los 11 a 20 kgs: 
-Pedido #1
-Modalidad = Express
-Peso =19

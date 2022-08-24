@@ -1,7 +1,0 @@
-
-Rango D
-
-Se cuentan con los siguientes pedidos con peso entre los 31 a 45 kgs: 
-Pedido #1
-Modalidad = Express
-Peso =32

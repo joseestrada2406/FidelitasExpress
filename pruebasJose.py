@@ -5,7 +5,8 @@ MODULO_EXPRESS = 200
 MODULO_BAJO_COSTO = 100
 MODULO_INTERNACIONAL = 300
 REDUCCION_PESO = 1
-listaPedidos = [[1, 'Jose Estrada', 402310691, 'Experian', 'Express', 2800.0, 10.0],[1, 'Jose Estrada', 402310691, 'Experian', 'Express', 2800.0, 19.0],[1, 'Jose Estrada', 402310691, 'Experian', 'Express', 2800.0, 32.0]]
+#listaPedidos = [[1, 'Jose Estrada', 402310691, 'Experian', 'Express', 2800.0, 10.0],[1, 'Jose Estrada', 402310691, 'Experian', 'Express', 2800.0, 19.0],[1, 'Jose Estrada', 402310691, 'Experian', 'Express', 2800.0, 32.0]]
+listaPedidos = []
 identificador_paquete = 0
 if (len(listaPedidos) > 0 ):
     identificador_paquete = int(listaPedidos[-1][0])
@@ -234,10 +235,9 @@ def moduloReportes():
         lecturaArchivo("Archivo Rango B.txt")
         lecturaArchivo("Archivo Rango C.txt")
         lecturaArchivo("Archivo Rango D.txt")
-       # lecturaArchivo("Reporte de peso de paquetes.txt")
+
 
 """Aquí se encuentran las funciones para el manejo de archivos"""
-
 
 
 def agregarInformacionPedidos():

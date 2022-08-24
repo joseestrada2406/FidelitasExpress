@@ -1,5 +1,3 @@
-import io 
-
 
 COSTO_INICIAL = 1000
 PESO_MAXIMO = 45
@@ -7,11 +5,19 @@ MODULO_EXPRESS = 200
 MODULO_BAJO_COSTO = 100
 MODULO_INTERNACIONAL = 300
 REDUCCION_PESO = 1
-listaPedidos = [[1, 'Jose Estrada', 402310691, 'Experian', 'Express', 2800.0, 10.0]]
+listaPedidos = [[1, 'Jose Estrada', 402310691, 'Experian', 'Express', 2800.0, 10.0],[1, 'Jose Estrada', 402310691, 'Experian', 'Express', 2800.0, 19.0],[1, 'Jose Estrada', 402310691, 'Experian', 'Express', 2800.0, 32.0]]
 identificador_paquete = 0
 if (len(listaPedidos) > 0 ):
     identificador_paquete = int(listaPedidos[-1][0])
-
+    
+#Para paquetes con peso entre 1 a 10
+rangoA = []
+#Para paquetes con peso entre 11 a 20
+rangoB = []
+#Para paquetes con peso entre 21 a 30
+rangoC = []
+#Para paquetes con peso entre 31 a 45
+rangoD = []
 
 def flujoPrincipalProyecto():
     SALIDA = 0
@@ -26,9 +32,6 @@ def flujoPrincipalProyecto():
             moduloEnvio()
         elif seleccionModulo == 2:
             moduloFacturacion()
-            #seleccionSeguir = int(input("Desea realizar otra operación: 1=Si / 2=No "))
-            #if seleccionSeguir == 2:
-            #    SALIDA = 1
         elif seleccionModulo == 3:
             moduloReportes()
             
@@ -45,6 +48,7 @@ def menuModulos():
     print("3. Módulo de Informes\n")
     
 def moduloEnvio():
+    """Flujo principal para el módulo de envío"""
     SALIDA = 0
     print("Ingrese sus datos para continuar: ")
     informacionUsuario = solicitarInformacionParaEnvio()
@@ -126,8 +130,9 @@ def moduloEnvio():
             print("Muchas gracias por realizar el envio con nosotros \n")
 
 
-#Función para guardar los datos ingresados por el usuario
+
 def solicitarInformacionParaEnvio():
+    """Función para guardar los datos ingresados por el usuario"""
     global nombre
     nombre = input("Ingrese el nombre completo de quien realiza el pedido: ")
     global identificación
@@ -155,6 +160,7 @@ def menuModalidadesEnvio():
     
 
 def moduloFacturacion():
+    """Flujo principal del módulo de facturación"""
     ingresoCedula = int(input("Para brindar el detalle de sus pedidos, por favor ingrese su número de cédula: "))
     nombreEmpresa =(input("Ingrese el nombre de la empresa que desea la factura: "))
     direccion = (input("Ingrese la dirección de la empresa: "))
@@ -176,6 +182,7 @@ def moduloFacturacion():
     
 
 def pedidosPorUsuario(ingresoCedula):
+    """Función para listar los pedidos realizados por usuarios"""
     contadorFila = 0
     listaTemporal = []
     print("El detalle de sus pedidos se muestra a continuación: \n")
@@ -206,6 +213,7 @@ Este es el comienzo del módulo para la generación de reportes
 """
 
 def moduloReportes():
+    """Flujo principal para el módulo de reportes"""
     print("\n")
     print("1. Lista de paquetes creados")
     print("2. Resumen de ganancia")
@@ -213,21 +221,21 @@ def moduloReportes():
     decision = int(input("Por favor seleccione alguna de las opciones anteriores: "))
     if decision == 1:
         agregarInformacionPedidos()
-        lecturaArchivo('Lista de paquetes creados.txt')
+        lecturaArchivo('Reporte de paquetes creados.txt')
     if decision == 2:
         reporteGanancias()
     if decision == 3:
         reportePesoDePaquetes()
-        lecturaArchivo("Reporte de peso de paquetes.txt")
+       # lecturaArchivo("Reporte de peso de paquetes.txt")
 
 """Aquí se encuentran las funciones para el manejo de archivos"""
 
-"""Función para agregar la información de pedidos"""
+
 
 def agregarInformacionPedidos():
+    """Función para agregar la información de pedidos"""
     
-    """BUSQUEMOS CÓMO ITERAR SOBRE EL ARREGLO E IMPRIMIR LOS DATOS ACÁ"""
-    
+
     archivoTemporal = abrirArchivo("Reporte de paquetes creados.txt", "a")
     for fila in listaPedidos:
         archivoTemporal.write("Información del pedido:")
@@ -246,40 +254,56 @@ def agregarInformacionPedidos():
         archivoTemporal.write("\n")
         archivoTemporal.write(f"Peso del paquete Kg = {str(fila[6])}")
         archivoTemporal.write("\n\n")
-        #print("\nLa información fue grabada correctamente")
     cerrarArchivo(archivoTemporal)
 
-"""Función para abrir archivos"""           
-
+           
 def abrirArchivo(nombreArchivo,modo):
+    """Función para abrir archivos"""
     archivoTemporal = open(nombreArchivo,modo,encoding='latin-1')
     return archivoTemporal
 
-"""Función para cerrar archivos """
+
 
 def cerrarArchivo(nombreArchivo):
+    """Función para cerrar archivos """
     nombreArchivo.close()
   
-"""Función para leer archivos"""
+
   
 def lecturaArchivo(nombreArchivo):
+    """Función para leer archivos"""
     archivoTemporal = open(nombreArchivo,'r',encoding='latin-1')
     print(archivoTemporal.read())
 
 def reporteGanancias():
     print('1')
 
+
 def reportePesoDePaquetes():
-    archivoTemportal = abrirArchivo("Reporte de peso de paquetes.txt", "a")
+    """Función para separar los pedidos según sus rangos de peso"""
+    for pedido in listaPedidos:  
+        if  0 < pedido[6] < 11:
+            rangoA.append(pedido)
+        elif 11 <= pedido[6] < 21:
+            rangoB.append(pedido)
+        elif 21 <= pedido[6] < 31:
+            rangoC.append(pedido)
+        else:
+            rangoD.append(pedido)
+    print(rangoA)
+    print(rangoB)
+    print(rangoC)
+    print(rangoD) 
+            
+            
+    #cerrarArchivo(archivoTemportal)
+
+"""
+archivoTemportal = abrirArchivo("Reporte de peso de paquetes.txt", "a")
     archivoTemportal.write("Peso de los pedidos:")
     archivoTemportal.write("\n\n")
-
-    for pedido in listaPedidos:  
-        if pedido[6] != 0:
-            archivoTemportal.write(str(pedido) + "\n")       
+    
+archivoTemportal.write(str(pedido) + "\n")       
     archivoTemportal.write("\n")
-    cerrarArchivo(archivoTemportal)
-
-
-
+"""
 flujoPrincipalProyecto()

@@ -1,0 +1,7 @@
+
+Rango A
+
+Se cuentan con los siguientes pedidos con peso entre los 1 a 10 kgs: 
+Pedido #1
+Modalidad = Express
+Peso =10

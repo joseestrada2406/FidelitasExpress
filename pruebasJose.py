@@ -225,7 +225,15 @@ def moduloReportes():
     if decision == 2:
         reporteGanancias()
     if decision == 3:
-        reportePesoDePaquetes()
+        creacionDeRangosSegunPeso()
+        escrituraArchivoRangos(rangoA,"Rango A","1 a 10 kgs")
+        escrituraArchivoRangos(rangoB,"Rango B","11 a 20 kgs")
+        escrituraArchivoRangos(rangoC,"Rango C","21 a 30 kgs")
+        escrituraArchivoRangos(rangoD,"Rango D","31 a 45 kgs")
+        lecturaArchivo("Archivo Rango A.txt")
+        lecturaArchivo("Archivo Rango B.txt")
+        lecturaArchivo("Archivo Rango C.txt")
+        lecturaArchivo("Archivo Rango D.txt")
        # lecturaArchivo("Reporte de peso de paquetes.txt")
 
 """Aquí se encuentran las funciones para el manejo de archivos"""
@@ -235,7 +243,6 @@ def moduloReportes():
 def agregarInformacionPedidos():
     """Función para agregar la información de pedidos"""
     
-
     archivoTemporal = abrirArchivo("Reporte de paquetes creados.txt", "a")
     for fila in listaPedidos:
         archivoTemporal.write("Información del pedido:")
@@ -263,47 +270,49 @@ def abrirArchivo(nombreArchivo,modo):
     return archivoTemporal
 
 
-
 def cerrarArchivo(nombreArchivo):
     """Función para cerrar archivos """
     nombreArchivo.close()
   
-
   
 def lecturaArchivo(nombreArchivo):
     """Función para leer archivos"""
     archivoTemporal = open(nombreArchivo,'r',encoding='latin-1')
     print(archivoTemporal.read())
 
+
 def reporteGanancias():
     print('1')
 
 
-def reportePesoDePaquetes():
-    """Función para separar los pedidos según sus rangos de peso"""
+def creacionDeRangosSegunPeso():
+    """Función para separar los pedidos según sus rangos de peso después de truncarlos"""
     for pedido in listaPedidos:  
         if  0 < pedido[6] < 11:
+            pedido[6] = int(pedido[6])
             rangoA.append(pedido)
         elif 11 <= pedido[6] < 21:
+            pedido[6] = int(pedido[6])
             rangoB.append(pedido)
         elif 21 <= pedido[6] < 31:
+            pedido[6] = int(pedido[6])
             rangoC.append(pedido)
         else:
+            pedido[6] = int(pedido[6])
             rangoD.append(pedido)
-    print(rangoA)
-    print(rangoB)
-    print(rangoC)
-    print(rangoD) 
             
-            
-    #cerrarArchivo(archivoTemportal)
+def escrituraArchivoRangos(nombreLista,nombreRango,rango):
+    """Funcion para escribir en el archivo para los Rangos"""
+    archivoTemporal = abrirArchivo(f"Archivo {nombreRango}.txt",'a')
+    archivoTemporal.write(f"\n{nombreRango}\n\n")
+    archivoTemporal.write(f"Se cuentan con los siguientes pedidos con peso entre los {rango}: \n")
+    for fila in nombreLista:
+        archivoTemporal.write(f"Pedido #{fila[0]}\n")
+        archivoTemporal.write(f"Modalidad = {fila[4]}\n")
+        archivoTemporal.write(f"Peso ={fila[6]}\n")
+    cerrarArchivo(archivoTemporal)
+        
 
-"""
-archivoTemportal = abrirArchivo("Reporte de peso de paquetes.txt", "a")
-    archivoTemportal.write("Peso de los pedidos:")
-    archivoTemportal.write("\n\n")
-    
-archivoTemportal.write(str(pedido) + "\n")       
-    archivoTemportal.write("\n")
-"""
+
+
 flujoPrincipalProyecto()
